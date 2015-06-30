@@ -5,9 +5,10 @@
  */
 /* There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).*/
 var findMedianSortedArrays = function(nums1, nums2) {
-    if(!nums1 || !nums2) return null;
+  if (!nums1 || !nums2) return null;
 
-    
+  var num3 = [];
+  
 };
 
 
@@ -57,7 +58,7 @@ var calculate = function(s) {
  * @param {Interval[]} intervals
  * @return {Interval[]}
  */
-var swap = function(intervals, low, high){
+var swap = function(intervals, low, high) {
   var tmp = intervals[low];
   intervals[low] = intervals[high];
   intervals[high] = tmp;
@@ -65,11 +66,11 @@ var swap = function(intervals, low, high){
 
 var partition = function(intervals, low, high) {
   var privotKey = intervals[low].start;
-  while(low < high) {
-    while(low < high && intervals[high].start >= privotKey)
+  while (low < high) {
+    while (low < high && intervals[high].start >= privotKey)
       --high;
     swap(intervals, low, high);
-    while(low < high && intervals[low].start <= privotKey)
+    while (low < high && intervals[low].start <= privotKey)
       ++low;
     swap(intervals, low, high);
   }
@@ -93,14 +94,15 @@ var merge = function(intervals) {
   quickSort(intervals, 0, intervals.length - 1);
 
   var result = [];
-  var i = 0, j = 0;
+  var i = 0,
+    j = 0;
   var start_val, end_val;
   do {
     j++;
     start_val = intervals[i].start;
     end_val = intervals[i].end;
     while (intervals[j] && (intervals[j].start <= end_val)) {
-      if(intervals[j].end > end_val) {
+      if (intervals[j].end > end_val) {
         end_val = intervals[j].end;
       }
       j++;
@@ -129,7 +131,7 @@ var lengthOfLongestSubstring = function(s) {
       j = Math.max(j, hashMap[s[i]] + 1);
     }
     hashMap[s[i]] = i;
-    max = Math.max(max, i-j+1);
+    max = Math.max(max, i - j + 1);
   }
   return max;
 };
