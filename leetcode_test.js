@@ -1,6 +1,6 @@
 QUnit.module( "group current" );
 //Problem 5
-QUnit.test( "leetcode test - Problem 5", function( assert ) {
+QUnit.skip( "leetcode test - Problem 5", function( assert ) {
 	var paras = [
 		{args:undefined, expected:null},
 	];
@@ -16,7 +16,7 @@ QUnit.test( "leetcode test - Problem 5", function( assert ) {
 
 QUnit.module( "group other" );
 //Problem 4
-QUnit.skip( "leetcode test - Problem 4", function( assert ) {
+QUnit.test( "leetcode test - Problem 4", function( assert ) {
 	var paras = [
 		{args1:undefined, args2:undefined, expected:null},
 		{args1:[1,2,2], args2:[], expected:2},

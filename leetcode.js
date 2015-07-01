@@ -6,7 +6,7 @@
 You may assume that the maximum length of S is 1000, 
 and there exists one unique longest palindromic substring.*/
 var longestPalindrome = function(s) {
-    
+
 };
 
 
@@ -18,7 +18,7 @@ var longestPalindrome = function(s) {
 /* There are two sorted arrays nums1 and nums2 of size m and n respectively. 
 Find the median of the two sorted arrays. 
 The overall run time complexity should be O(log (m+n)).*/
-var findMedianSortedArrays = function(nums1, nums2) {
+/*var findMedianSortedArrays = function(nums1, nums2) {
   if (!nums1 || !nums2) return null;
 
   var nums3 = [];
@@ -42,38 +42,33 @@ var findMedianSortedArrays = function(nums1, nums2) {
   return (nums3.length % 2 === 0) ?
     (nums3[(nums3.length / 2)] + nums3[(nums3.length / 2 - 1)]) / 2 :
     nums3[Math.floor(nums3.length / 2)];
-};
-/*function findMedian(A, m, B, n) {
-  if (m > n) return findMedianSortedArrays(B, n, A, m);
-  var minidx = 0,
-    maxidx = m,
-    i, j, num1, mid = Math.floor((m + n + 1) / 2),
-    num2;
-  while (minidx <= maxidx) {
-    i = (minidx + maxidx) >> 1;
-    j = mid - i;
-    if (i < m && j > 0 && B[j - 1] > A[i]) minidx = i + 1;
-    else if (i > 0 && j < n && B[j] < A[i - 1]) maxidx = i - 1;
-    else {
-      if (i === 0) num1 = B[j - 1];
-      else if (j === 0) num1 = A[i - 1];
-      else num1 = Math.max(A[i - 1], B[j - 1]);
-      break;
-    }
+};*/
+function findMedian(A, idxA, m, B, idxB, n, k) {
+  if (m > n) return findMedian(B, idxB, n, A, idxA, m, k);
+  if (m == 0) return B[idxB + k - 1];
+  if (m == 1) return Math.min(A[idxA], B[idxB]);
+
+  var i = idxA + Math.min(Math.floor(k/2), m), j = idxB + k-i;
+  if (A[i-1] < B[j-1]) {
+    return findMedian(A, i, m-i, B, idxB, n, k-i);
+  } else if(A[i-1] > B[j-1]) {
+    return findMedian(A, idxA, m, B, j, n-j, k-i);
+  } else {
+    return A[i-1];
   }
-  if (((m + n) & 1)) return num1;
-  if (i == m) num2 = B[j];
-  else if (j == n) num2 = A[i];
-  else num2 = Math.min(A[i], B[j]);
-  return (num1 + num2) / 2;
 }
 var findMedianSortedArrays = function(nums1, nums2) {
   if (!nums1 || !nums2) return null;
 
   var m = nums1.length,
     n = nums2.length;
-  return findMedian(nums1, m, nums2, n);
-};*/
+  var k = m + n;
+  if (k % 2 !== 0) {
+    return findMedian(nums1, 0, m, nums2, 0, n, (k + 1) / 2);
+  } else {
+    return (findMedian(nums1, 0, m, nums2, 0, n, k / 2) + findMedian(nums1, 0, m, nums2, 0, n, k / 2 + 1)) / 2;
+  }
+};
 
 
 /** Problem 227
