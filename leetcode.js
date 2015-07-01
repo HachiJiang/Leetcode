@@ -4,7 +4,7 @@
  * @return {number}
  */
 /* There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).*/
-/*var findMedianSortedArrays = function(nums1, nums2) {
+var findMedianSortedArrays = function(nums1, nums2) {
   if (!nums1 || !nums2) return null;
 
   var nums3 = [];
@@ -28,8 +28,8 @@
   return (nums3.length % 2 === 0) ?
     (nums3[(nums3.length / 2)] + nums3[(nums3.length / 2 - 1)]) / 2 :
     nums3[Math.floor(nums3.length / 2)];
-};*/
-function findMedian(A, m, B, n) {
+};
+/*function findMedian(A, m, B, n) {
   if (m > n) return findMedianSortedArrays(B, n, A, m);
   var minidx = 0,
     maxidx = m,
@@ -59,7 +59,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
   var m = nums1.length,
     n = nums2.length;
   return findMedian(nums1, m, nums2, n);
-};
+};*/
 
 
 /** Problem 227
