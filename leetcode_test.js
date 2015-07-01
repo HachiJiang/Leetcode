@@ -1,5 +1,22 @@
+QUnit.module( "group current" );
+//Problem 5
+QUnit.test( "leetcode test - Problem 5", function( assert ) {
+	var paras = [
+		{args:undefined, expected:null},
+	];
+
+	for (var i = 0; i < paras.length; i++) {
+		var actual = longestPalindrome(paras[i].args);
+		assert.equal( 
+			actual, 
+			paras[i].expected,
+			" expects: " + actual + " equal to " + paras[i].expected);
+	};
+});
+
+QUnit.module( "group other" );
 //Problem 4
-QUnit.test( "leetcode test - Problem 4", function( assert ) {
+QUnit.skip( "leetcode test - Problem 4", function( assert ) {
 	var paras = [
 		{args1:undefined, args2:undefined, expected:null},
 		{args1:[1,2,2], args2:[], expected:2},
@@ -14,10 +31,11 @@ QUnit.test( "leetcode test - Problem 4", function( assert ) {
 	];
 
 	for (var i = 0; i < paras.length; i++) {
+		var actual = findMedianSortedArrays(paras[i].args1, paras[i].args2);
 		assert.equal( 
-			findMedianSortedArrays(paras[i].args1, paras[i].args2), 
+			actual, 
 			paras[i].expected,
-			" expects: " + paras[i].args + " equal to " + paras[i].expected);
+			" expects: " + actual + " equal to " + paras[i].expected);
 	};
 });
 

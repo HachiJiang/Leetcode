@@ -1,9 +1,23 @@
+/** Problem 5
+ * @param {string} s
+ * @return {string}
+ */
+/*Given a string S, find the longest palindromic substring in S. 
+You may assume that the maximum length of S is 1000, 
+and there exists one unique longest palindromic substring.*/
+var longestPalindrome = function(s) {
+    
+};
+
+
 /** Problem 4
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number}
  */
-/* There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).*/
+/* There are two sorted arrays nums1 and nums2 of size m and n respectively. 
+Find the median of the two sorted arrays. 
+The overall run time complexity should be O(log (m+n)).*/
 var findMedianSortedArrays = function(nums1, nums2) {
   if (!nums1 || !nums2) return null;
 
