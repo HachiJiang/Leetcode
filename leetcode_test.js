@@ -2,7 +2,14 @@
 QUnit.test( "leetcode test - Problem 4", function( assert ) {
 	var paras = [
 		{args1:undefined, args2:undefined, expected:null},
-		{args1:"134", args2:"125", expected:3}
+		{args1:[1,2,2], args2:[1,2,3], expected:2},
+		{args1:[1,1], args2:[2,2,2,3], expected:2},
+		{args1:[1,3,4], args2:[1,2,5], expected:2.5},
+		{args1:[0,3,4], args2:[1,2,5,8,9], expected:3.5},		
+		{args1:[1,2], args2:[1,1], expected:1},
+		{args1:[1], args2:[1], expected:1},
+		{args1:[1,1], args2:[1,2], expected:1},
+		{args1:[0,0,1,1], args2:[0,0,1,2], expected:0.5},
 	];
 
 	for (var i = 0; i < paras.length; i++) {

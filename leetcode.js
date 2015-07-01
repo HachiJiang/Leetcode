@@ -4,11 +4,61 @@
  * @return {number}
  */
 /* There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).*/
+/*var findMedianSortedArrays = function(nums1, nums2) {
+  if (!nums1 || !nums2) return null;
+
+  var nums3 = [];
+  var i = 0,
+    j = 0;
+  while ((nums1[i] !== undefined) && (nums2[j] !== undefined)) {
+    while (nums1[i] <= nums2[j]) {
+      nums3.push(nums1[i++]);
+    }
+    while (nums2[j] <= nums1[i]) {
+      nums3.push(nums2[j++]);
+    }
+  }
+
+  while (nums1[i] !== undefined) {
+    nums3.push(nums1[i++]);
+  }
+  while (nums2[j] !== undefined) {
+    nums3.push(nums2[j++]);
+  }
+  return (nums3.length % 2 === 0) ?
+    (nums3[(nums3.length / 2)] + nums3[(nums3.length / 2 - 1)]) / 2 :
+    nums3[Math.floor(nums3.length / 2)];
+};*/
+function findMedian(A, m, B, n) {
+  if (m > n) return findMedianSortedArrays(B, n, A, m);
+  var minidx = 0,
+    maxidx = m,
+    i, j, num1, mid = Math.floor((m + n + 1) / 2),
+    num2;
+  while (minidx <= maxidx) {
+    i = (minidx + maxidx) >> 1;
+    j = mid - i;
+    if (i < m && j > 0 && B[j - 1] > A[i]) minidx = i + 1;
+    else if (i > 0 && j < n && B[j] < A[i - 1]) maxidx = i - 1;
+    else {
+      if (i === 0) num1 = B[j - 1];
+      else if (j === 0) num1 = A[i - 1];
+      else num1 = Math.max(A[i - 1], B[j - 1]);
+      break;
+    }
+  }
+  if (((m + n) & 1)) return num1;
+  if (i == m) num2 = B[j];
+  else if (j == n) num2 = A[i];
+  else num2 = Math.min(A[i], B[j]);
+  return (num1 + num2) / 2;
+}
 var findMedianSortedArrays = function(nums1, nums2) {
   if (!nums1 || !nums2) return null;
 
-  var num3 = [];
-  
+  var m = nums1.length,
+    n = nums2.length;
+  return findMedian(nums1, m, nums2, n);
 };
 
 
