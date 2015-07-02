@@ -3,7 +3,7 @@ define(function(require) {
   var qunit = require('qunit');
 
   //Problem 7
-  var Problem7 = require('./problems/7_ReverseInteger');
+  var problem7 = require('problem7');
 
   QUnit.test("leetcode test - Problem 5", function(assert) {
     var paras = [{
@@ -12,7 +12,7 @@ define(function(require) {
     }, ];
 
     for (var i = 0; i < paras.length; i++) {
-      var actual = reverse(paras[i].args);
+      var actual = problem7.reverse(paras[i].args);
       assert.equal(
         actual,
         paras[i].expected,
@@ -21,7 +21,7 @@ define(function(require) {
   });
 
   //Problem 4
-  var Problem4 = require('./problems/4_MedianofTwoSortedArrays');
+  var problem4 = require('problem4');
 
   QUnit.test("leetcode test - Problem 4", function(assert) {
     var paras = [{
@@ -67,7 +67,7 @@ define(function(require) {
     }, ];
 
     for (var i = 0; i < paras.length; i++) {
-      var actual = findMedianSortedArrays(paras[i].args1, paras[i].args2);
+      var actual = problem4.findMedianSortedArrays(paras[i].args1, paras[i].args2);
       assert.equal(
         actual,
         paras[i].expected,

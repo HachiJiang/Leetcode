@@ -8,6 +8,9 @@ Example2: x = -123, return -321
  * @param {number} x
  * @return {number}
  */
-var reverse = function(x) {
-    
-};
+define(function(require, exports, module) {
+  var reverse = function(x) {
+
+  };
+  exports.reverse = reverse;
+});
