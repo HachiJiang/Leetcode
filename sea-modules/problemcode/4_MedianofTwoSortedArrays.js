@@ -3,9 +3,6 @@
  * @param {number[]} nums2
  * @return {number}
  */
-/* There are two sorted arrays nums1 and nums2 of size m and n respectively. 
-Find the median of the two sorted arrays. 
-The overall run time complexity should be O(log (m+n)).*/
 define(function(require, exports, module) {
   /*var findMedianSortedArrays = function(nums1, nums2) {
     if (!nums1 || !nums2) return null;

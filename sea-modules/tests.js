@@ -2,22 +2,21 @@ define(function(require) {
 
   var qunit = require('qunit');
 
-  //Problem 7
-  var problem7 = require('problem7');
+  //Problem 6
+  var problem6 = require('problem6');
 
-  QUnit.test("leetcode test - Problem 7", function(assert) {
+  QUnit.test("leetcode test - Problem 6", function(assert) {
     var paras = [
-      { args: undefined, expected: null }, 
-      { args: 1, expected: 1 }, 
-      { args: -1, expected: -1 }, 
-      { args: 123, expected: 321 }, 
-      { args: -123, expected: -321 }, 
-      { args: 1000, expected: 1 }, 
-      { args: 1534236469, expected: 0 }
+      { args: [undefined, undefined], expected: null },
+      { args: ["ABC", 1], expected: "ABC" },
+      { args: ["ABC", 3], expected: "ABC" },
+      { args: ["ABCDE", 4], expected: "ABCED" },
+      { args: ["PAYPALISHIRING", 3], expected: "PAHNAPLSIIGYIR" },
+      { args: ["ABCDE", 3], expected: "AEBDC" }
     ];
 
     paras.forEach(function(para) {
-      var actual = problem7.reverse(para.args);
+      var actual = problem6.convert(para.args[0], para.args[1]);
       assert.equal(
         actual,
         para.expected,
@@ -50,5 +49,29 @@ define(function(require) {
         " expects: " + actual + " equal to " + para.expected);
     });
   });
+
+  //Problem 7
+  var problem7 = require('problem7');
+
+  QUnit.test("leetcode test - Problem 7", function(assert) {
+    var paras = [
+      { args: undefined, expected: null }, 
+      { args: 1, expected: 1 }, 
+      { args: -1, expected: -1 }, 
+      { args: 123, expected: 321 }, 
+      { args: -123, expected: -321 }, 
+      { args: 1000, expected: 1 }, 
+      { args: 1534236469, expected: 0 }
+    ];
+
+    paras.forEach(function(para) {
+      var actual = problem7.reverse(para.args);
+      assert.equal(
+        actual,
+        para.expected,
+        " expects: " + actual + " equal to " + para.expected);
+    });
+  });
+
 
 });

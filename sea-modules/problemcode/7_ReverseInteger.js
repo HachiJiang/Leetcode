@@ -1,10 +1,4 @@
-/* Problem 7
-Reverse digits of an integer.
-
-Example1: x = 123, return 321
-Example2: x = -123, return -321 
-*/
-/**
+/** Problem 7
  * @param {number} x
  * @return {number}
  */
