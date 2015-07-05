@@ -2,25 +2,31 @@ define(function(require) {
 
   var qunit = require('qunit');
 
-  //Problem 6
-  var problem6 = require('problem6');
+  //Problem 8
+  var problem8 = require('problem8');
 
-  QUnit.test("leetcode test - Problem 6", function(assert) {
+  QUnit.test("leetcode test - Problem 8", function(assert) {
     var paras = [
-      { args: [undefined, undefined], expected: null },
-      { args: ["ABC", 1], expected: "ABC" },
-      { args: ["ABC", 3], expected: "ABC" },
-      { args: ["ABCDE", 4], expected: "ABCED" },
-      { args: ["PAYPALISHIRING", 3], expected: "PAHNAPLSIIGYIR" },
-      { args: ["ABCDE", 3], expected: "AEBDC" }
+      { args: undefined, expected: null },
+      { args: "12345", expected: 12345 },
+      { args: "12!23", expected: 12 },
+      { args: "", expected: 0 },
+      { args: "-123", expected: -123 },
+      { args: "+123", expected: 123 },
+      { args: "+-123", expected: 0 },
+      { args: "010", expected: 10 },
+      { args: "    010", expected: 10 },
+      { args: "   -0012a42", expected: -12 },
+      { args: "2147483648", expected: 2147483647 },
+      { args: "-2147483649", expected: -2147483648 }
     ];
 
     paras.forEach(function(para) {
-      var actual = problem6.convert(para.args[0], para.args[1]);
+      var actual = problem8.myAtoi(para.args);
       assert.equal(
         actual,
         para.expected,
-        " expects: " + actual + " equal to " + para.expected);
+        para.args + " expects: " + actual + " equal to " + para.expected);
     });
   });
 
@@ -38,11 +44,33 @@ define(function(require) {
       { args1: [1, 2], args2: [1, 1], expected: 1 }, 
       { args1: [1], args2: [1], expected: 1 }, 
       { args1: [1, 1], args2: [1, 2], expected: 1 }, 
-      { args1: [0, 0, 1, 1], args2: [0, 0, 1, 2], expected: 0.5 }, 
+      { args1: [0, 0, 1, 1], args2: [0, 0, 1, 2], expected: 0.5 }
     ];
 
     paras.forEach(function(para) {
       var actual = problem4.findMedianSortedArrays(para.args1, para.args2);
+      assert.equal(
+        actual,
+        para.expected,
+        " expects: " + actual + " equal to " + para.expected);
+    });
+  });
+
+  //Problem 6
+  var problem6 = require('problem6');
+
+  QUnit.test("leetcode test - Problem 6", function(assert) {
+    var paras = [
+      { args: [undefined, undefined], expected: null },
+      { args: ["ABC", 1], expected: "ABC" },
+      { args: ["ABC", 3], expected: "ABC" },
+      { args: ["ABCDE", 4], expected: "ABCED" },
+      { args: ["PAYPALISHIRING", 3], expected: "PAHNAPLSIIGYIR" },
+      { args: ["ABCDE", 3], expected: "AEBDC" }
+    ];
+
+    paras.forEach(function(para) {
+      var actual = problem6.convert(para.args[0], para.args[1]);
       assert.equal(
         actual,
         para.expected,
@@ -72,6 +100,5 @@ define(function(require) {
         " expects: " + actual + " equal to " + para.expected);
     });
   });
-
 
 });

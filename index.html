@@ -12,19 +12,20 @@
   <div id="qunit-fixture"></div>
   <script src="sea-modules/seajs/3.0.0/sea.js"></script>
   <script>
-  // Set configuration
-  seajs.config({
-    base: "../Leetcode/sea-modules/",
-    alias: {
-      "qunit": "qunit/qunit-1.18.0.js",
-      "problem4": "problemcode/4_MedianofTwoSortedArrays.js",
-      "problem6": "problemcode/6_ZigZagConversion.js",
-      "problem7": "problemcode/7_ReverseInteger.js"
-    }
-  });
+    // Set configuration
+    seajs.config({
+      base: "../Leetcode/sea-modules/",
+      alias: {
+        "qunit": "qunit/qunit-1.18.0.js",
+        "problem4": "problemcode/4_MedianofTwoSortedArrays.js",
+        "problem6": "problemcode/6_ZigZagConversion.js",
+        "problem7": "problemcode/7_ReverseInteger.js",
+        "problem8": "problemcode/8_StringtoInteger.js"
+      }
+    });
 
-  // 加载文件入口
-  seajs.use("tests.js");
+    // 加载文件入口
+    seajs.use("tests.js");
   </script>
 </body>
 
