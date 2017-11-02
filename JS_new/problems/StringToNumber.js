@@ -42,6 +42,8 @@ const toNumber = str => {
         i++;
     }
 
+    // @TODO: 考虑溢出?
+
     return res * flag;
 };
 
