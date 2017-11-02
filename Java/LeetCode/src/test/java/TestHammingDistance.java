@@ -10,13 +10,13 @@ public class TestHammingDistance {
     @Test(expected = java.lang.IllegalArgumentException.class)
     public void testInvalid0() {
         HammingDistance h = new HammingDistance();
-        Assert.assertEquals(0, h.getDis(-1, 0));
+        h.getDis(-1, 0);
     }
 
     @Test(expected = java.lang.IllegalArgumentException.class)
     public void testBoardInvalid1() {
         HammingDistance h = new HammingDistance();
-        Assert.assertEquals(0, h.getDis(0, -1));
+        h.getDis(0, -1);
     }
 
     @Test
