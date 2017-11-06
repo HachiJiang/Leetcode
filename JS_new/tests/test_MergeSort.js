@@ -1,11 +1,11 @@
 /**
- * Created by jiang on 11/4/17.
+ * Created by jiang on 11/6/17.
  */
 /*
- * Test QuickSort.js
+ * Test MergeSort.js
  */
 
-const method = require('../problems/QuickSort');
+const method = require('../problems/MergeSort');
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -63,7 +63,7 @@ const tests = [
 ];
 
 // test cases
-describe('QuickSort', function () {
+describe('MergeSort', function () {
     tests.forEach(({ desc, params, expected }, index) =>
         it('TC ' + index + ': ' + desc, function() {
             method(params);

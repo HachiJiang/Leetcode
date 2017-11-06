@@ -34,7 +34,23 @@ const partition = (arr, start, end) => {
     return high;
 };
 
+/**
+ * Copy array as part of another array
+ * @param {Array} srcArr
+ * @param {Array} destArr
+ * @param {number} start
+ * @param {number} end
+ */
+const copyArr = (srcArr, destArr, start = 0, end = 0) => {
+    if (!srcArr || !destArr || start === null || end === null || end < start) return;
+
+    for (let i = start; i <= end; i++) {
+        destArr[i] = srcArr[i - start];
+    }
+};
+
 module.exports = {
     swap,
-    partition
+    partition,
+    copyArr
 };
