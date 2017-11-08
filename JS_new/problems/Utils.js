@@ -2,12 +2,12 @@
  * Utils
  */
 
-const swap = (arr, start, end) => {
+const swap = (arr, i, j) => {
     if (!arr) return;
 
-    const tmp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = tmp;
+    const tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
 };
 
 const partition = (arr, start, end) => {

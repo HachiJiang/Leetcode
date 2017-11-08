@@ -2,7 +2,7 @@
  * Created by jiang on 11/6/17.
  */
 
-const Utils = require('../problems/Utils');
+const Utils = require('./Utils');
 
 /**
  * Merge two sorted part to one sorted part
