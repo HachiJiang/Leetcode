@@ -2,16 +2,18 @@
  * Created by jiang on 11/4/17.
  */
 /*
- * Test QuickSort.js
+ * Test Sorting
  */
 
 const quickSort = require('../problems/QuickSort');
 const mergeSort = require('../problems/MergeSort');
 const bubbleSort = require('../problems/BubbleSort');
-const insertSort = require('../problems/InsertSort');
+const { InsertSort, InsertSortByStep } = require('../problems/InsertSort');
 const selectionSort = require('../problems/SelectionSort');
+const shellSort = require('../problems/ShellSort');
 const chai = require('chai');
 const expect = chai.expect;
+const _ = require('lodash');
 
 // mock input params
 const tests = [
@@ -68,7 +70,7 @@ const tests = [
 
 // test cases
 describe('QuickSort', function () {
-    tests.forEach(({ desc, params, expected }, index) =>
+    _.cloneDeep(tests).forEach(({ desc, params, expected }, index) =>
         it('TC ' + index + ': ' + desc, function() {
             quickSort(params);
             expect(params).to.eql(expected);
@@ -76,7 +78,7 @@ describe('QuickSort', function () {
 });
 
 describe('MergeSort', function () {
-    tests.forEach(({ desc, params, expected }, index) =>
+    _.cloneDeep(tests).forEach(({ desc, params, expected }, index) =>
         it('TC ' + index + ': ' + desc, function() {
             mergeSort(params);
             expect(params).to.eql(expected);
@@ -84,7 +86,7 @@ describe('MergeSort', function () {
 });
 
 describe('BubbleSort', function () {
-    tests.forEach(({ desc, params, expected }, index) =>
+    _.cloneDeep(tests).forEach(({ desc, params, expected }, index) =>
         it('TC ' + index + ': ' + desc, function() {
             bubbleSort(params);
             expect(params).to.eql(expected);
@@ -92,17 +94,25 @@ describe('BubbleSort', function () {
 });
 
 describe('InsertSort', function () {
-    tests.forEach(({ desc, params, expected }, index) =>
+    _.clone(tests).forEach(({ desc, params, expected }, index) =>
         it('TC ' + index + ': ' + desc, function() {
-            insertSort(params);
+            InsertSort(params);
             expect(params).to.eql(expected);
         }));
 });
 
 describe('SelectionSort', function () {
-    tests.forEach(({ desc, params, expected }, index) =>
+    _.cloneDeep(tests).forEach(({ desc, params, expected }, index) =>
         it('TC ' + index + ': ' + desc, function() {
             selectionSort(params);
+            expect(params).to.eql(expected);
+        }));
+});
+
+describe('ShellSort', function () {
+    _.cloneDeep(tests).forEach(({ desc, params, expected }, index) =>
+        it('TC ' + index + ': ' + desc, function() {
+            shellSort(params);
             expect(params).to.eql(expected);
         }));
 });
