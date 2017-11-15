@@ -10,14 +10,16 @@ const getFirstIdx = (arr, target) => {
     while (right > left) {
         mid = Math.floor((right + left) / 2);
         tmp = arr[mid];
-        if (tmp >= target) {
-            if (tmp === target && (mid === 0 || arr[mid + 1] !== target)) {
+        if (tmp === target) {
+            if (mid === 0 || arr[mid + 1] !== target) {
                 ret = mid;
                 break;
             }
             right = mid;
         } else if (tmp < target) {
             left = mid;
+        } else {
+            right = mid;
         }
     }
 
